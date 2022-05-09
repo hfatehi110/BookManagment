@@ -1,11 +1,10 @@
-﻿using AutoMapper;
+﻿
+using AutoMapper;
+using BookManagment.Application.Services.Log.Query;
 using BookManagment.Application.Services.People.Query;
+using BookManagment.Domain.Log;
 using BookManagment.Domain.People;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BookManagment.Application.Common.Mapping
 {
@@ -14,6 +13,7 @@ namespace BookManagment.Application.Common.Mapping
         public MappingProfile()
         {
             CreateMap<Person, GetAllPeopleItem>();
+            CreateMap<RequestResponseLog, GetAllLogQueryItem>();
         }
     }
 }

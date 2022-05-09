@@ -3,6 +3,7 @@ using BookManagment.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookManagment.Infrastructure.Migrations
 {
     [DbContext(typeof(BookDBContext))]
-    partial class BookDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220508155209_AddLogging")]
+    partial class AddLogging
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,47 +75,6 @@ namespace BookManagment.Infrastructure.Migrations
                     b.HasIndex("PersonID");
 
                     b.ToTable("Books");
-                });
-
-            modelBuilder.Entity("BookManagment.Domain.Log.RequestResponseLog", b =>
-                {
-                    b.Property<int>("LogId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LogId"), 1L, 1);
-
-                    b.Property<string>("End")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EventType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Ip")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RequestInfo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ResponseInfo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Start")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("LogId");
-
-                    b.ToTable("RequestResponseLogs");
                 });
 
             modelBuilder.Entity("BookManagment.Domain.People.Person", b =>

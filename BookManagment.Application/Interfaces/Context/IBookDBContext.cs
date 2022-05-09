@@ -1,4 +1,5 @@
 ﻿using BookManagment.Domain.Book;
+using BookManagment.Domain.Log;
 using BookManagment.Domain.People;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -14,6 +15,7 @@ namespace BookManagment.Application.Interfaces.Context
         DbSet<Person> People { get; set; }
         DbSet<Books> Books { get; set; }
         DbSet<BookDetails> BookDetails { get; set; }
+        DbSet<RequestResponseLog> RequestResponseLogs { get; set; }
         int SaveChanges(bool acceptAllChangesOnSuccess);
         int SaveChanges();
         Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = new CancellationToken());

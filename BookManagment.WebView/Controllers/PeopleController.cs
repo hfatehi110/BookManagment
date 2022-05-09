@@ -18,17 +18,18 @@ namespace BookManagment.WebView.Controllers
             _DeletePeopleHandler = deletePeopleHandler;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View(_GetAllPeopleHandler.Handler(CancellationToken.None));
         }
 
-
+        [HttpPost]
         public async Task<int> Insert(PeopleItemCommand peopleItem)
         {
             return await _InsertPeopleHandler.Handler(peopleItem, CancellationToken.None);           
         }
-
+        [HttpDelete]
         public async Task<bool> Delete(int PersonId)
         {
             return await _DeletePeopleHandler.Handler(PersonId, CancellationToken.None);

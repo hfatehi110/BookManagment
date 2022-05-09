@@ -1,5 +1,6 @@
 ﻿using BookManagment.Application.Interfaces.Context;
 using BookManagment.Domain.Book;
+using BookManagment.Domain.Log;
 using BookManagment.Domain.People;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -19,6 +20,7 @@ namespace BookManagment.Infrastructure.Persistence.Context
         public DbSet<Person> People { get; set; }
         public DbSet<Books> Books { get; set; }
         public DbSet<BookDetails> BookDetails { get; set; }
+        public DbSet<RequestResponseLog> RequestResponseLogs { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
